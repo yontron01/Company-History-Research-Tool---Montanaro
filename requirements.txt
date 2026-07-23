@@ -7,4 +7,4 @@ pandas
 tabulate
 markdown
 xhtml2pdf
-PIL
+Pillow
