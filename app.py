@@ -1,5 +1,12 @@
 import streamlit as st
 
+from PIL import Image
+# Loading Image using PIL
+im = Image.open('company_logo.png')
+# Adding Image to web app
+st.set_page_config(page_title="Company History Research App", page_icon = im)
+
+
 if "urls" not in st.session_state:
     st.session_state.urls = []
 
