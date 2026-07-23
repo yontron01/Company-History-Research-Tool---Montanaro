@@ -1,0 +1,9 @@
+wikipedia-api
+ddgs
+trafilatura
+google-genai
+anthropic
+pandas
+tabulate
+markdown
+xhtml2pdf
