@@ -1,6 +1,20 @@
 import streamlit as st
 import time
 from PIL import Image
+from ddgs import DDGS
+import wikipediaapi
+from google import genai
+from google.genai import types
+from google.genai import errors
+from anthropic import Anthropic
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.rl_config import defaultPageSize
+from reportlab.lib.units import inch
+from io import BytesIO
+from xhtml2pdf import pisa
+import markdown
+
 # Loading Image using PIL
 im = Image.open('browser_logo.png')
 # Adding Image to web app
@@ -64,7 +78,6 @@ if button:
     else:
         extracted_text = None
 
-    import wikipediaapi
 
     wiki_wiki = wikipediaapi.Wikipedia(user_agent = 'Company History Research Tool (yonisabdiaziz05@gmail.com)', language = 'en')
     page_py = wiki_wiki.page(company_name)
@@ -87,7 +100,7 @@ if button:
         
         
 
-    from ddgs import DDGS
+
 
     try:
         results = DDGS().text(company_name,max_results=max_resources)
@@ -127,10 +140,7 @@ if button:
     st.write(f"Cleaned text and got {len(info_cleaned_text)} characters")
     st.write("---")
 
-    from google import genai
-    from google.genai import types
-    from google.genai import errors
-    from anthropic import Anthropic
+
 
     response = None
     try:
@@ -248,13 +258,6 @@ if st.session_state.response_text is not None:
             st.write(url)
 
 
-    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-    from reportlab.lib.styles import getSampleStyleSheet
-    from reportlab.rl_config import defaultPageSize
-    from reportlab.lib.units import inch
-    from io import BytesIO
-    from xhtml2pdf import pisa
-    import markdown
     PAGE_HEIGHT=defaultPageSize[1]; PAGE_WIDTH=defaultPageSize[0]
     styles = getSampleStyleSheet()
 
