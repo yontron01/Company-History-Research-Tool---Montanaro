@@ -213,8 +213,7 @@ if button:
         why that's the case in a new section at the bottom.
         
         Lastly, i need you to tell me what the user wrote in the text area "focus points" and also what was in the "extracted_text". I need to
-        know in case there are issues where data isn't being saved. I'm going to send you documents about Disney so if the info i give you
-        isn't about that (the user given info not the ones scraped from online) then please advise what i can do to fix it.\""""
+        know in case there are issues where data isn't being saved. Just have two lines, one explaining what was in focus points and extracted text.\""""
 
 
         response = client.models.generate_content(
