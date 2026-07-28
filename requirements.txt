@@ -8,3 +8,4 @@ tabulate
 markdown
 xhtml2pdf
 Pillow
+tika
