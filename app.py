@@ -49,6 +49,7 @@ button = st.button("Run Research", type = "primary",on_click = parameter_checker
 
 get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
 
+extra_info = st.file_uploader("Upload Extra Information Here (Optional)")
 
 if button:
 
@@ -177,7 +178,8 @@ if button:
                 system_instruction = system_prompt
             ),
             contents=[info_cleaned_text,
-                      urls]
+                      urls,
+                     extra_info]
         )
         st.write("Summarised Text")
         #st.write(response.text)
