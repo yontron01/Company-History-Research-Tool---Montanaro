@@ -200,7 +200,11 @@ if button:
         Furthermore, prioritise using data given in the document they uploaded (for you it's called "extracted_text") as
         the user believes this information to be of importance. You should assume this information provided is accurate and worthwhile to
         incorporate in the report. If for whatever reason you have doubts that his information is useful at all then you MUST clearly explain 
-        why that's the case in a new section at the bottom.\""""
+        why that's the case in a new section at the bottom.
+        
+        Lastly, i need you to tell me what the user wrote in the text area "focus points" and also what was in the "extracted_text". I need to
+        know in case there are issues where data isn't being saved. I'm going to send you documents about Disney so if the info i give you
+        isn't about that (the user given info not the ones scraped from online) then please advise what i can do to fix it.\""""
 
 
         response = client.models.generate_content(
