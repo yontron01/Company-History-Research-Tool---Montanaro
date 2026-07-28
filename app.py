@@ -1,5 +1,5 @@
 import streamlit as st
-
+import time
 from PIL import Image
 # Loading Image using PIL
 im = Image.open('browser_logo.png')
@@ -38,12 +38,14 @@ get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/ap
 
 button = False
 
-if company_name.strip() == "":
-    st.error("Please Enter Company Name")
-elif api_key_input =="":
-    st.error("Please Enter API-key")
-else:
-    button = True
+while button == False:
+    time.sleep(5)
+    if company_name.strip() == "":
+        st.error("Please Enter Company Name")
+    elif api_key_input =="":
+        st.error("Please Enter API-key")
+    else:
+        break
 
 #import time
 
