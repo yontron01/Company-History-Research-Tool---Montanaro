@@ -49,6 +49,8 @@ button = st.button("Run Research", type = "primary",on_click = parameter_checker
 
 get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
 
+focus_points = st.text_area("Specific areas to focus on (Optional)")
+
 uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)")
 
 from tika import parser
@@ -179,9 +181,10 @@ if button:
         has grown substantially through acquisitions.
 
         End your response strictly with: "Confidence Score: [0-100]% and give a short justification on why the score is the way it is.
-        Also please let me know if the uploaded file worked. The text from that file is in your contents titled "extracted_text" and 
-        should be a document with information that i just took the text from. Let me know if it worked by just saying yes i could access
-        the contents from your uploaded documents or not.\""""
+        If the user has any specific focus points i would like you to obey them and put them on top priority even if they go against what
+        is in the prompt here. Here below is the focus points (if they put any, that is):
+        {focus_points}. Also tell me in the report that you could see their focus points that they put and repeat it directly so im sure
+        that you got it correctly.\""""
 
 
         response = client.models.generate_content(
