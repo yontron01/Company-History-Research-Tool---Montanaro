@@ -212,7 +212,8 @@ if button:
         why that's the case in a new section at the bottom.
         
         Lastly, i need you to tell me what the user wrote in the text area "focus points" and also what was in the "extracted_text". I need to
-        know in case there are issues where data isn't being saved. Just have two lines, one explaining what was in focus points and extracted text.\""""
+        know in case there are issues where data isn't being saved. Just have two lines, one explaining what was in focus points and extracted text
+        but make it brief as possible as though you were guessing what the file name i uploaded was.\""""
 
 
         response = client.models.generate_content(
