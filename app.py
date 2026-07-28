@@ -36,7 +36,7 @@ model_select = st.selectbox(
 def parameter_checker(company = company_name, api = api_key_input):
     if company.strip() == "":
         st.error("Please Enter Company Name")
-    elif api =="":
+    if api =="":
         st.error("Please Enter API-key")
 
 
