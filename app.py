@@ -67,17 +67,16 @@ get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/ap
 focus_points = st.text_area("Specific areas to focus on (Optional)")
 
 uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)")
-
-
-if button:
-    
-    
-    if uploaded_file is not None:
+ if uploaded_file is not None:
         file_bytes = uploaded_file.read()
         parsed_data = parser.from_buffer(file_bytes)
         extracted_text = parsed_data.get('content',"")
     else:
         extracted_text = None
+
+if button:
+    
+
 
 
     wiki_wiki = wikipediaapi.Wikipedia(user_agent = 'Company History Research Tool (yonisabdiaziz05@gmail.com)', language = 'en')
