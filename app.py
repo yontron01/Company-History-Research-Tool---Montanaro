@@ -178,7 +178,10 @@ if button:
         Consider whether the same approach would work for an established industrial business, a technology company and a business that
         has grown substantially through acquisitions.
 
-        End your response strictly with: "Confidence Score: [0-100]% and give a short justification on why the score is the way it is\""""
+        End your response strictly with: "Confidence Score: [0-100]% and give a short justification on why the score is the way it is.
+        Also please let me know if the uploaded file worked. The text from that file is in your contents titled "extracted_text" and 
+        should be a document with information that i just took the text from. Let me know if it worked by just saying yes i could access
+        the contents from your uploaded documents or not.\""""
 
 
         response = client.models.generate_content(
