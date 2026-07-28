@@ -57,7 +57,7 @@ if button:
 
     wiki_wiki = wikipediaapi.Wikipedia(user_agent = 'Company History Research Tool (yonisabdiaziz05@gmail.com)', language = 'en')
     page_py = wiki_wiki.page(company_name)
-    st.write('Page - Exists: %s' % page_py.exists())
+    st.write('Wikipedia Page - Exists: %s' % page_py.exists())
 
     #page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
     #print('Page - Missing: %s' %page_missing.exists())
