@@ -36,6 +36,15 @@ button = st.button("Run Research", type = "primary")
 
 get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
 
+button = False
+
+if company_name.strip() == "":
+    st.error("Please Enter Company Name")
+elif api_key_input =="":
+    st.error("Please Enter API-key")
+else:
+    button = True
+
 #import time
 
 #t0 = time.time()
