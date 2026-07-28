@@ -69,7 +69,7 @@ if button:
 
     wiki_wiki = wikipediaapi.Wikipedia(user_agent = 'Company History Research Tool (yonisabdiaziz05@gmail.com)', language = 'en')
     page_py = wiki_wiki.page(company_name)
-    st.write('Wikipedia Page - Exists: %s' % page_py.exists())
+    st.spinner('Wikipedia Page - Exists: %s' % page_py.exists())
 
     #page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
     #print('Page - Missing: %s' %page_missing.exists())
@@ -82,7 +82,7 @@ if button:
     if page_py.exists() == False:
         st.write(f"{company_name} not found on Wikipedia")
         st.write("---")
-        st.write("Checking elsewhere...")
+        st.spinner("Checking elsewhere...")
 
     from ddgs import DDGS
 
@@ -95,7 +95,7 @@ if button:
         st.write(f"Error message: [e]")
 
     urls = []
-    st.write("Storing URLs...")
+    st.spinner("Storing URLs...")
     for r in results:
         urls.append(r["href"])
     st.write("Stored URLs")
@@ -103,7 +103,7 @@ if button:
     import trafilatura
 
     info = []
-    st.write("Downloading information from URLs...")
+    st.spinner("Downloading information from URLs...")
     info.append(page_py.text)
     for link in urls:
         downloaded = trafilatura.fetch_url(link)
@@ -112,7 +112,7 @@ if button:
 
     st.write("Downloaded information")
     st.write("---")
-    st.write("Cleaning text...")
+    st.spinner("Cleaning text...")
     info_cleaned = [text for text in info if text is not None]
     info_cleaned_text = "\n".join(info_cleaned)
     st.write(f"Cleaned text and got {len(info_cleaned_text)} characters")
@@ -128,7 +128,7 @@ if button:
 
 
         client = genai.Client(api_key=api_key_input)
-        st.write("Summarising text...")
+        st.spinner("Summarising text...")
         st.write("---")
         system_prompt = f"""You are a corporate analyst investigating the company: {company_name}.
 
