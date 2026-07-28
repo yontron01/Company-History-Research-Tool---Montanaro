@@ -202,13 +202,14 @@ if button:
         has grown substantially through acquisitions.
 
         End your response strictly with: "Confidence Score: [0-100]% and give a short justification on why the score is the way it is.
-        If the user has any specific focus points i would like you to obey them and put them on top priority even if they go against what
-        is in the prompt here. Here below is the focus points (if they put any, that is):
-        {focus_points}. 
-        
-        Furthermore, prioritize using the data from the user-uploaded background document. Seamlessly integrate this information into the 
-        relevant sections of the report without explicitly mentioning the file's variable name or creating a separate assessment section for 
-        the file itself unless its credibility is highly questionable.\""""
+        If the user has provided any specific focus points, obey them with top priority. 
+        Here are the focus points: {focus_points}. 
+
+        CRITICAL FILE HANDLING: You have been provided an uploaded document under the variable 'extracted_text'. 
+        Analyze this document. If the document is about a completely different company than {company_name}, 
+        DO NOT mix its data into the history of {company_name}. Instead, follow the user's focus point 
+        instructions exactly and clearly state what company or topic the uploaded file actually contains 
+        at the very beginning or end of your response as requested.\""""
 
 
         response = client.models.generate_content(
