@@ -32,24 +32,23 @@ model_select = st.selectbox(
      "gemini-2.5-flash-lite"
 )
 )
-button = st.button("Run Research", type = "primary")
 
-get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
-
-button = False
-
-while button == False:
-    time.sleep(5)
-    if company_name.strip() == "":
+def parameter_checker(company = company_name, api = api_key_input):
+    if company.strip() == "":
         st.error("Please Enter Company Name")
-    elif api_key_input =="":
+    elif api =="":
         st.error("Please Enter API-key")
-    else:
-        break
+
 
 #import time
 
 #t0 = time.time()
+
+
+button = st.button("Run Research", type = "primary",on_click = parameter_checker)
+
+get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
+
 
 if button:
 
