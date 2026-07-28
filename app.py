@@ -14,10 +14,6 @@ if "response_text" not in st.session_state:
     st.session_state.response_text = None
 
 
-if "extracted_text" not in st.session_state:
-    st.session_state.extracted_text = None
-
-
 st.image("company_logo.png", width=300)  # width is optional, controls display size
 company_name = st.text_input("Enter Company Name: ", value = "Montanaro Asset Management")
 max_resources = st.number_input("Enter the maximum number of resources you would like to use: ",
@@ -57,17 +53,16 @@ focus_points = st.text_area("Specific areas to focus on (Optional)")
 
 uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)")
 
-from tika import parser
-
-if uploaded_file is not None:
-    file_bytes = uploaded_file.read()
-    parsed_data = parser.from_buffer(file_bytes)
-    st.session_state.extracted_text = parsed_data.get('content',"")
-else:
-    st.session_state.extracted_text = None
 
 if button:
-
+    
+    
+    if uploaded_file is not None:
+        file_bytes = uploaded_file.read()
+        parsed_data = parser.from_buffer(file_bytes)
+        extracted_text = parsed_data.get('content',"")
+    else:
+        extracted_text = None
 
     import wikipediaapi
 
@@ -218,7 +213,7 @@ if button:
             ),
             contents=[info_cleaned_text,
                       urls,
-                     st.session_state.extracted_text]
+                     extracted_text]
         )
         st.write("Summarised Text")
         #st.write(response.text)
