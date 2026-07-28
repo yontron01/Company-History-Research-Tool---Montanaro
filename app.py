@@ -206,10 +206,9 @@ if button:
         is in the prompt here. Here below is the focus points (if they put any, that is):
         {focus_points}. 
         
-        Furthermore, prioritise using data given in the document they uploaded called "extracted_text" as
-        the user believes this information to be of importance. You should assume this information provided is accurate and worthwhile to
-        incorporate in the report. If for whatever reason you have doubts that his information is useful at all then you MUST clearly explain 
-        why that's the case in a new section at the bottom.\""""
+        Furthermore, prioritize using the data from the user-uploaded background document. Seamlessly integrate this information into the 
+        relevant sections of the report without explicitly mentioning the file's variable name or creating a separate assessment section for 
+        the file itself unless its credibility is highly questionable.\""""
 
 
         response = client.models.generate_content(
