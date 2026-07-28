@@ -14,6 +14,7 @@ from reportlab.lib.units import inch
 from io import BytesIO
 from xhtml2pdf import pisa
 import markdown
+from tika import parser
 
 # Loading Image using PIL
 im = Image.open('browser_logo.png')
