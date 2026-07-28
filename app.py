@@ -184,7 +184,7 @@ if button:
         If the user has any specific focus points i would like you to obey them and put them on top priority even if they go against what
         is in the prompt here. Here below is the focus points (if they put any, that is):
         {focus_points}. Furthermore, prioritise using data given in the document they uploaded (for you it's called "extracted_text") as
-        the user believes this information to be of importance. You should assume this information provided is accurate and worthwile to
+        the user believes this information to be of importance. You should assume this information provided is accurate and worthwhile to
         incorporate in the report. If for whatever reason you have doubts then you MUST clearly explain why in the source justification section.\""""
 
 
