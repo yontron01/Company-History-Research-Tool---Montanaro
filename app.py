@@ -71,7 +71,7 @@ if button:
     page_py = wiki_wiki.page(company_name)
     status = st.spinner('Wikipedia Page - Exists: %s' % page_py.exists())
     time.sleep(0.1)
-    status.empty()
+    
 
     #page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
     #print('Page - Missing: %s' %page_missing.exists())
@@ -86,7 +86,7 @@ if button:
         st.write("---")
         status = st.spinner("Checking elsewhere...")
         time.sleep(0.1)
-        status.empty()
+        
 
     from ddgs import DDGS
 
@@ -101,7 +101,7 @@ if button:
     urls = []
     status = st.spinner("Storing URLs...")
     time.sleep(0.1)
-    status.empty()
+    
     for r in results:
         urls.append(r["href"])
     st.write("Stored URLs")
@@ -111,7 +111,7 @@ if button:
     info = []
     status = st.spinner("Downloading information from URLs...")
     time.sleep(0.1)
-    status.empty()
+    
     info.append(page_py.text)
     for link in urls:
         downloaded = trafilatura.fetch_url(link)
@@ -122,7 +122,7 @@ if button:
     st.write("---")
     status = st.spinner("Cleaning text...")
     time.sleep(0.1)
-    status.empty()
+    
     info_cleaned = [text for text in info if text is not None]
     info_cleaned_text = "\n".join(info_cleaned)
     st.write(f"Cleaned text and got {len(info_cleaned_text)} characters")
@@ -140,7 +140,7 @@ if button:
         client = genai.Client(api_key=api_key_input)
         status = st.spinner("Summarising text...")
         time.sleep(0.1)
-        status.empty()
+        
         st.write("---")
         system_prompt = f"""You are a corporate analyst investigating the company: {company_name}.
 
