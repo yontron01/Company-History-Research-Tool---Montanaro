@@ -49,7 +49,16 @@ button = st.button("Run Research", type = "primary",on_click = parameter_checker
 
 get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
 
-extra_info = st.file_uploader("Upload Extra Information Here (Optional)")
+uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)")
+
+from tika import parser
+
+if uploaded_file is not None:
+    file_bytes = uploaded_file.read()
+    parsed_data = parser.from_buffer(file_bytes)
+    extracted_text = parsed_data.get('content',"")
+else:
+    extracted_text = None
 
 if button:
 
@@ -179,7 +188,7 @@ if button:
             ),
             contents=[info_cleaned_text,
                       urls,
-                     extra_info]
+                     extracted_text]
         )
         st.write("Summarised Text")
         #st.write(response.text)
