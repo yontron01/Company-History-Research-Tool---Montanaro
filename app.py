@@ -66,13 +66,16 @@ get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/ap
 
 focus_points = st.text_area("Specific areas to focus on (Optional)")
 
-uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)")
-if uploaded_file is not None:
-    file_bytes = uploaded_file.read()
-    parsed_data = parser.from_buffer(file_bytes)
-    extracted_text = parsed_data.get('content',"")
-else:
-    extracted_text = None
+uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)",accept_multiple_files = True)
+extracted_text = []
+for file in uploaded_file:
+        
+    if uploaded_file is not None:
+        file_bytes = uploaded_file.read()
+        parsed_data = parser.from_buffer(file_bytes)
+        extracted_text.append(parsed_data.get('content',""))
+    else:
+        extracted_text = None
 
 if button:
     
