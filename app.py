@@ -70,8 +70,8 @@ uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)",acce
 extracted_text = []
 for file in uploaded_file:
         
-    if uploaded_file is not None:
-        file_bytes = uploaded_file.read()
+    if file is not None:
+        file_bytes = file.read()
         parsed_data = parser.from_buffer(file_bytes)
         extracted_text.append(parsed_data.get('content',""))
     else:
