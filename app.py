@@ -274,4 +274,4 @@ if st.session_state.response_text is not None:
         )
     else:
         st.error("No report was generated, so no PDF is available to download")
-st.write(extracted_text)
+#st.write(extracted_text)
