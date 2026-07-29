@@ -74,6 +74,8 @@ for file in uploaded_file:
         file_bytes = file.read()
         parsed_data = parser.from_buffer(file_bytes)
         extracted_text.append(parsed_data.get('content',""))
+    else:
+        extracted_text = None
 
 if button:
     
