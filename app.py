@@ -68,12 +68,14 @@ focus_points = st.text_area("Specific areas to focus on (Optional)")
 
 uploaded_file = st.file_uploader("Upload Extra Information Here (Optional)",accept_multiple_files = True)
 extracted_text = []
+contents = []
 for file in uploaded_file:
         
     if file is not None:
         file_bytes = file.read()
         parsed_data = parser.from_buffer(file_bytes)
         extracted_text.append(parsed_data.get('content',""))
+        contents.append(extracted_text)
     else:
         extracted_text = None
 
@@ -121,6 +123,7 @@ if button:
         urls.append(r["href"])
     st.write("Stored URLs")
     st.write("---")
+    contents.append(urls)
     import trafilatura
 
     info = []
@@ -142,9 +145,10 @@ if button:
     info_cleaned_text = "\n".join(info_cleaned)
     st.write(f"Cleaned text and got {len(info_cleaned_text)} characters")
     st.write("---")
+    contents.append(info_cleaned_text)
 
 
-
+    
     response = None
     try:
 
@@ -220,9 +224,7 @@ if button:
             config = types.GenerateContentConfig(
                 system_instruction = system_prompt
             ),
-            contents=[info_cleaned_text,
-                      urls,
-                     extracted_text]
+            contents=contents
         )
         st.write("Summarised Text")
         #st.write(response.text)
