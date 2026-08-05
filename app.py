@@ -15,6 +15,7 @@ from io import BytesIO
 from xhtml2pdf import pisa
 import markdown
 from tika import parser
+from tavily import TavilyClient, TavilyKeylessLimitError
 
 # Loading Image using PIL
 im = Image.open('browser_logo.png')
@@ -30,7 +31,9 @@ if "response_text" not in st.session_state:
 
 
 st.image("company_logo.png", width=300)  # width is optional, controls display size
+
 company_name = st.text_input("Enter Company Name: ", value = "Montanaro Asset Management")
+
 max_resources = st.number_input("Enter the maximum number of resources you would like to use: ",
             min_value = 10,
             step = 1,
@@ -62,7 +65,9 @@ def parameter_checker(company = company_name, api = api_key_input):
 
 button = st.button("Run Research", type = "primary",on_click = parameter_checker)
 
-get_api = st.link_button("Get your API key", "https://aistudio.google.com/app/apikey")
+get_api = st.link_button("Get your Gemini API key", "https://aistudio.google.com/app/apikey")
+
+get_tavily_api = st.link_button("Get your Tavily API key", "https://app.tavily.com/home")
 
 focus_points = st.text_area("Specific areas to focus on (Optional)")
 
@@ -103,9 +108,6 @@ if button:
         st.write("---")
         st.write("Checking elsewhere...")
         
-        
-
-
 
     try:
         results = DDGS().text(company_name,max_results=max_resources)
@@ -124,6 +126,22 @@ if button:
     st.write("Stored URLs")
     st.write("---")
     contents.append(urls)
+
+    client_tav = TavilyClient(api_key=tavily_key_input)
+    
+    client_tav.session.verify = False
+    
+    optimized_query = f"{company_name} official corporate profile overview background history"
+    
+    response = client_tav.search(optimized_query,
+                            max_results = 20)
+
+    just_urls = [result["url"] for result in response.get("results", [])]
+    
+ 
+    urls.append(just_urls)
+
+    
     import trafilatura
 
     info = []
