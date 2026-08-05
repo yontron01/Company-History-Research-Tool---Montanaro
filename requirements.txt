@@ -9,4 +9,4 @@ markdown
 xhtml2pdf
 Pillow
 tika
-tavily
+tavily>=0.6.0
