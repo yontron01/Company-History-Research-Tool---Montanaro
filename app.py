@@ -152,7 +152,7 @@ if button:
     except:
         pass
 
-    st.write(f"Found {len(urls)} results)
+    st.write(f"Found {len(urls)} results")
     st.write("---")
     
     import trafilatura
