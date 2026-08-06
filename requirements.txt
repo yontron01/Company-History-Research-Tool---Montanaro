@@ -9,4 +9,4 @@ markdown
 xhtml2pdf
 Pillow
 tika
-tavily>=0.6.0
+tavily-python
