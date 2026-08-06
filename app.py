@@ -130,20 +130,20 @@ if button:
     st.write("Stored URLs")
     st.write("---")
     contents.append(urls)
-
-    client_tav = TavilyClient(api_key=tav_api_key_input)
+    try: 
+        client_tav = TavilyClient(api_key=tav_api_key_input)
+        
+        client_tav.session.verify = False
+        
+        optimized_query = f"{company_name} official corporate profile overview background history"
+        
+        response = client_tav.search(optimized_query,
+                                max_results = 20)
     
-    client_tav.session.verify = False
-    
-    optimized_query = f"{company_name} official corporate profile overview background history"
-    
-    response = client_tav.search(optimized_query,
-                            max_results = 20)
-
-    just_urls = [result["url"] for result in response.get("results", [])]
-    
- 
-    urls.extend(just_urls)
+        just_urls = [result["url"] for result in response.get("results", [])]
+        
+     
+        urls.extend(just_urls)
 
     
     import trafilatura
