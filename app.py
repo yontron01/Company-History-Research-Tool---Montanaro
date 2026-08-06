@@ -39,11 +39,15 @@ max_resources = st.number_input("Enter the maximum number of resources you would
             step = 1,
             value = 20,
     )
-api_key_input = st.text_input("API-key: ",
-            placeholder = "Enter your own API key here",
+gemini_api_key_input = st.text_input("Gemini API-key: ",
+            placeholder = "Enter your Gemini API key here",
             type = "password",
 )   
 
+tav_api_key_input = st.text_input("Tavily API-key: ",
+            placeholder = "Enter your Tavily API key here",
+            type = "password",
+)   
 model_select = st.selectbox(
     "Which Gemini model would you like to use?",
     ("gemini-3.6-flash","gemini-3.5-flash","gemini-3.1-flash-lite",
@@ -51,7 +55,7 @@ model_select = st.selectbox(
 )
 )
 
-def parameter_checker(company = company_name, api = api_key_input):
+def parameter_checker(company = company_name, api = gemini_api_key_input):
     if company.strip() == "":
         st.error("Please Enter Company Name")
     if api =="":
@@ -127,7 +131,7 @@ if button:
     st.write("---")
     contents.append(urls)
 
-    client_tav = TavilyClient(api_key=tavily_key_input)
+    client_tav = TavilyClient(api_key=tav_api_key_input)
     
     client_tav.session.verify = False
     
@@ -171,7 +175,7 @@ if button:
     try:
 
 
-        client = genai.Client(api_key=api_key_input)
+        client = genai.Client(api_key=gemini_api_key_input)
         st.write("Summarising text...")
         
         
