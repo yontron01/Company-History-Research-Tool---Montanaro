@@ -29,6 +29,9 @@ if "urls" not in st.session_state:
 if "response_text" not in st.session_state:
     st.session_state.response_text = None
 
+if "params_valid" not in st.session_state:
+    st.session_state.params_valid = False
+
 
 st.image("company_logo.png", width=300)  # width is optional, controls display size
 
@@ -59,16 +62,15 @@ model_select = st.selectbox(
      "gemini-2.5-flash-lite"
 )
 )
-params_valid = True
+
 def parameter_checker(company = company_name, api = gemini_api_key_input):
-    global params_valid
-    params_valid = True
+
     if company.strip() == "":
         st.error("Please Enter Company Name")
-        params_valid = False
+ 
     if api =="":
         st.error("Please Enter Gemini API-key")
-        params_valid = False
+
 
 #import time
 
