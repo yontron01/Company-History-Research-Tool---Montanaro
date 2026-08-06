@@ -48,6 +48,8 @@ tav_api_key_input = st.text_input("Tavily API-key: ",
             placeholder = "Enter your Tavily API key here (Optional but Recommended for better results)",
             type = "password",
 )   
+st.toast('The Tavily API key is optional but recommended for better results',icon = 'ℹ️')
+
 model_select = st.selectbox(
     "Which Gemini model would you like to use?",
     ("gemini-3.6-flash","gemini-3.5-flash","gemini-3.1-flash-lite",
