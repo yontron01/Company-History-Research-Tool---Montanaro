@@ -34,7 +34,7 @@ st.image("company_logo.png", width=300)  # width is optional, controls display s
 
 company_name = st.text_input("Enter Company Name: ", value = "Montanaro Asset Management")
 
-max_resources = st.number_input("Enter the maximum number of resources you would like to use: ",
+max_resources = st.number_input("Enter the maximum number of resources you would like DDGS to use: ",
             min_value = 10,
             step = 1,
             value = 20,
@@ -120,7 +120,7 @@ if button:
 
     try:
         results = DDGS().text(company_name,max_results=max_resources)
-        st.write(f"Got {len(results)} results")
+        #st.write(f"Got {len(results)} results")
         #print(results)
     except Exception as e:
         st.write(f"Error type: {type(e).__name__}")
@@ -133,7 +133,7 @@ if button:
     for r in results:
         urls.append(r["href"])
     st.write("Stored URLs")
-    st.write("---")
+    #st.write("---")
     contents.append(urls)
     try: 
         client_tav = TavilyClient(api_key=tav_api_key_input)
@@ -152,6 +152,8 @@ if button:
     except:
         pass
 
+    st.write(f"Found {len(urls)} results)
+    st.write("---")
     
     import trafilatura
 
