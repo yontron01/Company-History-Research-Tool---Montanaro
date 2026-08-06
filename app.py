@@ -59,14 +59,16 @@ model_select = st.selectbox(
      "gemini-2.5-flash-lite"
 )
 )
-params = True
+params_valid = True
 def parameter_checker(company = company_name, api = gemini_api_key_input):
+    global params_valid
+    params_valid = True
     if company.strip() == "":
         st.error("Please Enter Company Name")
-        params = False
+        params_valid = False
     if api =="":
         st.error("Please Enter Gemini API-key")
-        params = False
+        params_valid = False
 
 #import time
 
@@ -94,7 +96,7 @@ for file in uploaded_file:
     else:
         extracted_text = None
 
-if button and params:
+if button and params_valid:
     
 
 
