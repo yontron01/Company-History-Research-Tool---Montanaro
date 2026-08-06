@@ -53,7 +53,7 @@ tav_api_key_input = st.text_input("Tavily API-key: ",
 )   
 st.toast('The Tavily API key is optional but recommended for better results',
          icon = 'ℹ️',
-        duration = 6
+        duration = 'short'
 )
 
 model_select = st.selectbox(
