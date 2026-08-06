@@ -33,7 +33,7 @@ if "params_valid" not in st.session_state:
     st.session_state.params_valid = True
 
 if "info_shown" not in st.session_state:
-    st.toast("Tavily API key is optional but recommended,
+    st.toast("Tavily API key is optional but recommended",
             icon = 'ℹ️',
             duration='infinite'
             )
