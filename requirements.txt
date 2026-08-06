@@ -10,3 +10,4 @@ xhtml2pdf
 Pillow
 tika
 tavily-python
+streamlit>=1.49.0
