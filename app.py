@@ -45,7 +45,7 @@ gemini_api_key_input = st.text_input("Gemini API-key: ",
 )   
 
 tav_api_key_input = st.text_input("Tavily API-key: ",
-            placeholder = "Enter your Tavily API key here (Optional but Recommended for better results)",
+            placeholder = "Enter your Tavily API key here (Optional)",
             type = "password",
 )   
 st.toast('The Tavily API key is optional but recommended for better results',icon = 'ℹ️')
