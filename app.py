@@ -59,7 +59,7 @@ def parameter_checker(company = company_name, api = gemini_api_key_input):
     if company.strip() == "":
         st.error("Please Enter Company Name")
     if api =="":
-        st.error("Please Enter API-key")
+        st.error("Please Enter Gemini API-key")
 
 
 #import time
