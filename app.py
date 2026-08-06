@@ -30,7 +30,7 @@ if "response_text" not in st.session_state:
     st.session_state.response_text = None
 
 if "params_valid" not in st.session_state:
-    st.session_state.params_valid = False
+    st.session_state.params_valid = True
 
 
 st.image("company_logo.png", width=300)  # width is optional, controls display size
@@ -64,12 +64,14 @@ model_select = st.selectbox(
 )
 
 def parameter_checker(company = company_name, api = gemini_api_key_input):
-
+    st.session_state.params_valid = True
     if company.strip() == "":
         st.error("Please Enter Company Name")
+        st.session_state.params_valid = False
  
     if api =="":
         st.error("Please Enter Gemini API-key")
+        st.session_state.params_valid = False
 
 
 #import time
@@ -98,7 +100,7 @@ for file in uploaded_file:
     else:
         extracted_text = None
 
-if button and params_valid:
+if button and st.session_state.params_valid:
     
 
 
