@@ -51,10 +51,12 @@ tav_api_key_input = st.text_input("Tavily API-key: ",
             placeholder = "Enter your Tavily API key here (Optional)",
             type = "password",
 )   
-st.toast('The Tavily API key is optional but recommended for better results',
-         icon = 'ℹ️',
-        duration = 'short'
-)
+count = 0
+if count==0:
+    st.toast('The Tavily API key is optional but recommended for better results',
+             icon = 'ℹ️',
+            duration = 'short'
+    )
 
 model_select = st.selectbox(
     "Which Gemini model would you like to use?",
@@ -282,6 +284,7 @@ if button and st.session_state.params_valid:
 
     st.session_state.urls = urls
     st.session_state.response_text = response.text
+    count +=1
     
 if st.session_state.response_text is not None:               
     button_sources = st.button("See Sources")
