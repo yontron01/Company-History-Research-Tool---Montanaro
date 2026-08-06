@@ -63,8 +63,10 @@ model_select = st.selectbox(
 def parameter_checker(company = company_name, api = gemini_api_key_input):
     if company.strip() == "":
         st.error("Please Enter Company Name")
+        st.rerun()
     if api =="":
         st.error("Please Enter Gemini API-key")
+        st.rerun()
 
 
 #import time
