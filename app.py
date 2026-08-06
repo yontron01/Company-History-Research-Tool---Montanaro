@@ -45,7 +45,7 @@ gemini_api_key_input = st.text_input("Gemini API-key: ",
 )   
 
 tav_api_key_input = st.text_input("Tavily API-key: ",
-            placeholder = "Enter your Tavily API key here",
+            placeholder = "Enter your Tavily API key here (Optional but Recommended for better results)",
             type = "password",
 )   
 model_select = st.selectbox(
