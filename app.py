@@ -143,7 +143,7 @@ if button:
     just_urls = [result["url"] for result in response.get("results", [])]
     
  
-    urls.append(just_urls)
+    urls.extend(just_urls)
 
     
     import trafilatura
