@@ -16,7 +16,7 @@ from xhtml2pdf import pisa
 import markdown
 from tika import parser
 from tavily import TavilyClient, TavilyKeylessLimitError
-
+st.set_page_config(layout="wide")
 # Loading Image using PIL
 im = Image.open('browser_logo.png')
 # Adding Image to web app
