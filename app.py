@@ -144,6 +144,8 @@ if button:
         
      
         urls.extend(just_urls)
+    except:
+        pass
 
     
     import trafilatura
